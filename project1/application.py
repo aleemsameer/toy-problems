@@ -40,3 +40,7 @@ def register():
         except:
             return render_template("error.html")
     return render_template("register.html")
+@app.route("/admin", methods = ["GET"])
+def admin():
+    data = db.query(User)
+    return render_template("admin.html", users = data)
