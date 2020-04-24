@@ -40,7 +40,32 @@ def register():
         except:
             return render_template("error.html")
     return render_template("register.html")
+
 @app.route("/admin", methods = ["GET"])
 def admin():
     data = db.query(User)
     return render_template("admin.html", users = data)
+
+@app.route("/authenticate", methods = ["POST"])
+def authenticate():
+    email = request.form.get("email")
+    password = request.form.get("password")
+    thisuser = db.query(User).get(email)
+    
+    if (thisuser != None):
+        if thisuser.password == password:
+            session["email"] = email
+            return render_template("login.html", user = email)
+        else:
+            return render_template("register.html", name = "Incorrect password")
+    else:
+        return render_template("register.html", name = "No existing user with this email")
+
+@app.route("/logout", methods = ["GET"])
+def logout():
+    if "email" in session:  
+        session.clear()
+        print("Session removed for this user")
+        return redirect("/register")  
+    else:  
+        return "User already logged out"
