@@ -32,7 +32,7 @@ class TodoList extends React.Component {
                 <ol>
                     {
                         this.state.list.map((t) =>
-                            <Task key={t.id} name={t.name} dueDate={t.dueDate} id = {t.id} onDeleteTask = {this.handleDeleteTask} />)
+                            <Task key={t.id} name={t.name} dueDate={t.dueDate} id={t.id} onDeleteTask={this.handleDeleteTask} />)
                     }
                 </ol>
                 <TaskNameForm onAddTask={this.handleAddTask} />
