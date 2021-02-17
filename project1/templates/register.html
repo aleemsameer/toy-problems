@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration page</title>
+        <style type = "text/css">
+            h2 {
+                color: brown;
+            }
+            .ct {
+                background-color : rgb(63, 131, 63);
+                color:black;
+                margin: 20 px;
+                padding:20px;
+                font-size: 150%;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+            }
+            .container {
+                text-align: center;
+            }
+            h3 {
+                color: Red;
+            }
+        </style>
+    </head>
+    <body>
+        <marquee   direction = "left" loop = "" > 
+             <h2>Enter your details to continue...</h2>
+        </marquee> 
+        <div class = ct>
+            Details are essential for security purposes and your data is encrypted and privacy is our priority. We Thank-you for choosing us.
+        </div>
+        <div class = "container">
+            <h2>Registration Form</h2>
+            <form action = "/register" method = "POST">
+                <div class="form-group">
+					<label>Name: </label>
+					<input name = "name" type="text" class="form-control" placeholder="Enter name" required>
+                </div>
+                <br>
+				<div class="form-group">
+					<label>Email: </label>
+					<input name = "email" type="email" class="form-control" placeholder="Enter email" required>
+                </div>
+                <br>
+				<div class="form-group">
+					<label>Password: </label>
+					<input name = "password" type="password" class="form-control" placeholder="Enter password" required>
+                </div>
+                <br>
+				<div class="button">
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                    <button type="submit" class="btn btn-primary" formaction= "/authenticate">Login</button>
+                </div>
+            </form>
+            <div class = "text-center"><h3>{{name}}</h3></div>
+        </div>
+    </body>
+</html>
